@@ -1,7 +1,9 @@
 import SearchOutlined from '@mui/icons-material/SearchOutlined';
+import InsertEmoticon from '@mui/icons-material/InsertEmoticon';
+import Mic from '@mui/icons-material/Mic';
 import AttachFile from '@mui/icons-material/AttachFile';
 import MoreVert from '@mui/icons-material/MoreVert';
-import { Avatar, IconButton  } from '@mui/material';
+import { Avatar, IconButton } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import "./Chat.css"
 
@@ -25,16 +27,31 @@ function Chat() {
             <SearchOutlined />
           </IconButton>
           <IconButton>
-            <AttachFile />  
+            <AttachFile />
           </IconButton>
           <IconButton>
             <MoreVert />
           </IconButton>
         </div>
       </div>
-      <div className="chat__body"></div>
+      <div className="chat__body">
+        <p className={`chat__message ${true && 'chat__receiver'}`}>
+          <span className="chat__name">
+            Felix Petzsche
+          </span>
+          Hey Guys
+          <span className="chat__timestamp">3:52pm</span>
+        </p>
+      </div>
 
-      <div className="chat__footer"></div>
+      <div className="chat__footer">
+        <InsertEmoticon />
+        <form>
+          <input type="text" />
+          <button>Send a Message</button>
+        </form>
+          <Mic />
+      </div>
     </div>
   );
 }
