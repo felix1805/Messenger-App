@@ -14,6 +14,16 @@ function Sidebar() {
   const [rooms, setRooms] = useState([]);
   const [{ user }, dispatch] = useStateValue();
 
+  const createChat = () => {
+    const roomName = prompt("Please enter name for chat");
+
+    if (roomName) {
+      db.collection('rooms').add({
+        name: roomName,
+      })
+    }
+  };
+
   useEffect(() => {
    const unsubscribe = db.collection('rooms').onSnapshot((snapshot) =>
       setRooms(
@@ -36,7 +46,7 @@ function Sidebar() {
             <DonutLargeIcon />
           </IconButton>
           <IconButton>
-            <ChatIcon />
+            <ChatIcon onClick={createChat} />
           </IconButton>
           <IconButton>
             <MoreVertIcon />
